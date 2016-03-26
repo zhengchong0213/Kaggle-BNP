@@ -1,8 +1,8 @@
-##
-##	Kaggle - BNP Paribas Cardif Claims Management
-##	Summary: Priditict the probability of the the target column value by Logistic Regression Algorithm
-##	Platform: Window 7(64 bits), Python 2.7(64 bits)
-##
+#
+#	Kaggle - BNP Paribas Cardif Claims Management
+#	Summary: Priditict the probability of the the target column value by Logistic Regression Algorithm
+#	Platform: Window 7(64 bits), Python 2.7(64 bits)
+#
 
 
 import sys
@@ -85,5 +85,6 @@ testTarget = classifier.predict(testSample)
 resultId = test_Clean[id_Feature]
 dfResult = resultId.join(pd.DataFrame(testTarget))
 
+dfResult.rename(columns = {0:'PredictedProb'}, inplace = True)
 dfResult.to_csv('../datasets/BNP/submission.csv', header = True)
 print dfResult
